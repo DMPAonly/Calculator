@@ -18,104 +18,144 @@ public class calculator implements ActionListener{
         switch(e.getActionCommand()){
             case "1" -> {
                 changeLabel("1");
+                break;
             }
             case "2" -> {
                 changeLabel("2");
+                break;
             }
             case "3" -> {
                 changeLabel("3");
+                break;
             }
             case "4" -> {
                 changeLabel("4");
+                break;
             }
             case "5" -> {
                 changeLabel("5");
+                break;
             }
             case "6" -> {
                 changeLabel("6");
+                break;
             }
             case "7" -> {
                 changeLabel("7");
+                break;
             }
             case "8" -> {
                 changeLabel("8");
+                break;
             }
             case "9" -> {
                 changeLabel("9");
+                break;
             }
             case "0" -> {
                 changeLabel("0");
+                break;
             }
             case "+" -> {
-                if(!(label.getText()).equals("0")){
-                    if(a == null){
-                        a = label.getText();
-                        System.out.println("a ="+a);
-                    } else if(b == null){
-                        b = label.getText().substring(a.length() + 3);
-                        System.out.println("b ="+b);
-                        a = String.valueOf(mathOps());
-                        System.out.println("a ="+a);
-                        label.setText(a);
-                    }
-                    operator = "+";
-                    changeLabel(" + ");
-                } 
+                try {
+                    if(!(label.getText()).equals("0")){
+                        if(a == null){
+                            a = label.getText();
+                            System.out.println("a ="+a);
+                        } else if(b == null){
+                            b = label.getText().substring(a.length() + 3);
+                            System.out.println("b ="+b);
+                            a = String.valueOf(mathOps());
+                            System.out.println("a ="+a);
+                            label.setText(a);
+                        }
+                        operator = "+";
+                        changeLabel(" + ");
+                        break;
+                    } 
+                } catch (NumberFormatException ex) {
+                    System.out.println(ex);
+                    break;
+                }   
             }
             case "-" -> {
-                if(!(label.getText()).equals("0")){
-                    if(a == null){
-                        a = label.getText();
-                        System.out.println("a ="+a);
-                    } else if(b == null){
-                        b = label.getText().substring(a.length() + 3);
-                        System.out.println("b ="+b);
-                        a = String.valueOf(mathOps());
-                        System.out.println("a ="+a);
-                        label.setText(a);
-                    }
-                    operator = "-";
-                    changeLabel(" - ");
+                try {
+                    if(!(label.getText()).equals("0")){
+                        if(a == null){
+                            a = label.getText();
+                            System.out.println("a ="+a);
+                        } else if(b == null){
+                            b = label.getText().substring(a.length() + 3);
+                            System.out.println("b ="+b);
+                            a = String.valueOf(mathOps());
+                            System.out.println("a ="+a);
+                            label.setText(a);
+                        }
+                        operator = "-";
+                        changeLabel(" - ");
+                        break;
+                    } 
+                } catch (NumberFormatException ex) {
+                    System.out.println(ex);
+                    break;
                 } 
             }
             case "x" -> {
-                if(!(label.getText()).equals("0")){
-                    if(a == null){
-                        a = label.getText();
-                        System.out.println("a ="+a);
-                    } else if(b == null){
-                        b = label.getText().substring(a.length() + 3);
-                        System.out.println("b ="+b);
-                        a = String.valueOf(mathOps());
-                        System.out.println("a ="+a);
-                        label.setText(a);
-                    }
-                    operator = "x";
-                    changeLabel(" x ");
-                } 
+                try {
+                    if(!(label.getText()).equals("0")){
+                        if(a == null){
+                            a = label.getText();
+                            System.out.println("a ="+a);
+                        } else if(b == null){
+                            b = label.getText().substring(a.length() + 3);
+                            System.out.println("b ="+b);
+                            a = String.valueOf(mathOps());
+                            System.out.println("a ="+a);
+                            label.setText(a);
+                        }
+                        operator = "x";
+                        changeLabel(" x ");
+                        break;
+                    } 
+                } catch (NumberFormatException ex) {
+                    System.out.println(ex);
+                    break;
+                }  
             }
             case "/" -> {
-                if(!(label.getText()).equals("0")){
-                    if(a == null){
-                        a = label.getText();
-                        System.out.println("a ="+a);
-                    } else if(b == null){
-                        b = label.getText().substring(a.length() + 3);
-                        System.out.println("b ="+b);
-                        a = String.valueOf(mathOps());
-                        System.out.println("a ="+a);
-                        label.setText(a);
-                    }
-                    operator = "/";
-                    changeLabel(" / ");
+                try {
+                    if(!(label.getText()).equals("0")){
+                        if(a == null){
+                            a = label.getText();
+                            System.out.println("a ="+a);
+                        } else if(b == null){
+                            b = label.getText().substring(a.length() + 3);
+                            System.out.println("b ="+b);
+                            a = String.valueOf(mathOps());
+                            System.out.println("a ="+a);
+                            label.setText(a);
+                        }
+                        operator = "/";
+                        changeLabel(" / ");
+                        break;
+                    } 
+                } catch (NumberFormatException ex) {
+                    System.out.println(ex);
+                    break;
                 } 
             }
             case "=" -> {
-                if(!(label.getText()).equals("0")){
-                    b = label.getText().substring(a.length() + 3);
-                    label.setText(String.valueOf(mathOps()));
-                    a = null;
-                }
+                try {
+                    if(!(label.getText()).equals("0")){
+                        b = label.getText().substring(a.length() + 3);
+                        label.setText(String.valueOf(mathOps()));
+                        a = null;
+                    }
+                    break;
+                } catch (NumberFormatException ex) {
+                    System.out.println(ex);
+                    break;
+                }  
             }
         }
     }
@@ -135,15 +175,19 @@ public class calculator implements ActionListener{
         switch(operator) {
             case "+" -> {
                 num3 = num1 + num2;
+                break;
             }
             case "-" -> {
                 num3 = num1 - num2;
+                break;
             }
             case "x" -> {
                 num3 = num1 * num2;
+                break;
             }
             case "/" -> {
                 num3 = num1 / num2;
+                break;
             }
         }
         operator = null;
@@ -156,7 +200,7 @@ public class calculator implements ActionListener{
 
         JFrame frame = new JFrame();
         frame.setTitle("calculator");
-        frame.setSize(275, 305);
+        frame.setSize(300, 320);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -244,9 +288,5 @@ public class calculator implements ActionListener{
         btn_division.setBounds(190, 220, 50, 30);
         panel.add(btn_division);
         btn_division.addActionListener(cal);
-
-    }
-
-    
-    
+    } 
 }
